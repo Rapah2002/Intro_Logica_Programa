@@ -1,0 +1,52 @@
+def calculadora(numero1, numero2, operacao):
+    """
+    Esta função realiza operações matemáticas básicas em dois números.
+
+    Args:
+      numero1: O primeiro número (float).
+      numero2: O segundo número (float).
+      operacao: A operação a ser realizada (+, -, *, /) (string).
+
+    Returns:
+      O resultado da operação (float) ou uma mensagem de erro (string).
+    """
+
+    # Verifica qual operação foi solicitada
+    if operacao == '+':
+        # Soma os dois números
+        resultado = numero1 + numero2
+    elif operacao == '-':
+        # Subtrai o segundo número do primeiro
+        resultado = numero1 - numero2
+    elif operacao == '*':
+        # Multiplica os dois números
+        resultado = numero1 * numero2
+    elif operacao == '/':
+        # Verifica se o segundo número é zero (para evitar divisão por zero)
+        if numero2 == 0:
+            # Retorna uma mensagem de erro se o segundo número for zero
+            return "Erro: divisão por zero!"
+        else:
+            # Divide o primeiro número pelo segundo
+            resultado = numero1 / numero2
+    else:
+        # Retorna uma mensagem de erro se a operação for inválida
+        return "Operação inválida!"
+
+    # Retorna o resultado da operação
+    return resultado
+
+# Solicita ao usuário que digite o primeiro número
+numero1 = float(input("Digite o primeiro número: "))
+
+# Solicita ao usuário que digite o segundo número
+numero2 = float(input("Digite o segundo número: "))
+
+# Solicita ao usuário que digite a operação desejada
+operacao = input("Digite a operação (+, -, *, /): ")
+
+# Chama a função calculadora com os números e a operação fornecidos pelo usuário
+resultado = calculadora(numero1, numero2, operacao)
+
+# Exibe o resultado da operação
+print("Resultado:", resultado)
